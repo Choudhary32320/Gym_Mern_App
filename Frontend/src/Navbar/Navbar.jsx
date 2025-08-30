@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 
-
-
 const Navbar = () => {
   const [active, setActive] = useState("home");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,17 +20,15 @@ const Navbar = () => {
     { name: "Contact", id: "contact" },
   ];
 
-  // Scroll into section on click
   const handleScroll = (id) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
       setActive(id);
-      setIsMenuOpen(false); // close menu after clicking in mobile
+      setIsMenuOpen(false);
     }
   };
 
-  // Track which section is visible while scrolling
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -53,7 +49,6 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Load logged-in state
   useEffect(() => {
     const loggedIn = JSON.parse(localStorage.getItem("keepLoggedIn"));
     setIsLoggedIn(loggedIn || false);
@@ -67,13 +62,11 @@ const Navbar = () => {
 
   return (
     <nav className="fixed bg-neutral-900 top-0 left-0 w-full flex items-center justify-between px-5 py-3 z-50">
-      {/* Logo */}
       <div className="flex items-center space-x-1 text-red-600">
         <img src={logo} alt="gym-logo" className="w-14 h-20 object-contain" />
         <h1 className="text-2xl font-bold">Evolve...</h1>
       </div>
 
-      {/* Desktop Links */}
       <ul className="hidden md:flex space-x-6 text-red-600">
         {links.map((link) => (
           <li key={link.id}>
@@ -91,7 +84,6 @@ const Navbar = () => {
         ))}
       </ul>
 
-      {/* Desktop Login / Logout Toggle */}
       <div className="hidden md:block">
         {isLoggedIn ? (
           <Button
@@ -110,7 +102,6 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* Mobile Hamburger */}
       <div className="md:hidden">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -120,7 +111,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
         <div className="absolute top-20 left-0 w-full bg-neutral-900 text-red-600 flex flex-col items-center space-y-4 py-6 md:hidden shadow-lg">
           {links.map((link) => (
