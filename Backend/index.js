@@ -23,7 +23,7 @@ const DB_URL = process.env.MONGO_URI || "mongodb://localhost:27017/";
 mongoose
   .connect(DB_URL)
   .then(() => {
-    console.log("Connected to MongoDB");
+    console.log("Connected to MongoDB"  + DB_URL);
   })
   .catch((error) => {
     console.error("Error connecting to MongoDB:", error);

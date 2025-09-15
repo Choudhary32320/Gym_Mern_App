@@ -31,7 +31,7 @@ const ItemDetails = () => {
           className="w-full h-64 object-contain mb-4"
         />
         <h1 className="text-2xl font-bold mb-2">{item.name}</h1>
-        <p className="text-gray-700 mb-2">{item.description}</p>
+        <p className="text-cyan-700 mb-2">{item.description}</p>
         <p className="text-lg font-semibold text-green-600 mb-4">
           ${item.price}
         </p>

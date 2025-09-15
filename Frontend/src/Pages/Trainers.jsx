@@ -14,85 +14,95 @@ const Trainers = () => {
       name: "James August",
       degree: "Expert Dietitian",
       description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, iure nemo. Similique quidem vitae aliquid nam.",
+        "Helping you achieve health goals with tailored nutrition plans backed by science and experience.",
       aos: "zoom-out",
     },
     {
       image: img2,
       name: "Sarah Logan",
-      degree: "Diploma in Mental Health",
+      degree: "Mental Health Specialist",
       description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, iure nemo. Similique quidem vitae aliquid nam.",
+        "Guiding your fitness journey with a focus on both mental and physical well-being.",
       aos: "zoom-out",
     },
     {
       image: img3,
       name: "Stipe Miocic",
-      degree: "Expert In Targeted Training",
+      degree: "Targeted Training Expert",
       description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, iure nemo. Similique quidem vitae aliquid nam.",
+        "Designing custom strength and conditioning programs to push your limits safely.",
       aos: "zoom-out",
     },
     {
       image: img4,
       name: "Victoria Cross",
-      degree: "Diploma in Physical Health",
+      degree: "Physical Health Coach",
       description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, iure nemo. Similique quidem vitae aliquid nam.",
+        "Building endurance, flexibility, and balance through innovative, sustainable methods.",
       aos: "zoom-out",
     },
     {
       image: img5,
-      name: "kate Hudson",
+      name: "Kate Hudson",
       degree: "Yoga Instructor",
       description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, iure nemo. Similique quidem vitae aliquid nam.",
+        "Empowering you through mindfulness, balance, and advanced yoga practices.",
       aos: "zoom-out",
     },
     {
       image: img6,
-      name: "Jesica Johnson",
+      name: "Jessica Johnson",
       degree: "Zumba Instructor",
       description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, iure nemo. Similique quidem vitae aliquid nam.",
+        "Bringing energy and fun to every session with calorie-burning dance workouts.",
       aos: "zoom-out",
     },
   ];
 
   return (
-    <>
+    <div className="w-full bg-neutral-900 text-gray-100">
       {/* Hero Section */}
-      <div className="relative w-full h-[60vh] flex flex-col items-center justify-center px-6 overflow-hidden">
-        <h1
-          className="absolute top-5 text-[5rem] md:text-[12rem] font-extrabold whitespace-nowrap text-transparent 
-          [text-stroke:3px_rgba(255,0,0,0.3)] [-webkit-text-stroke:3px_rgba(255,0,0,0.3)]
-          select-none pointer-events-none tracking-wider z-0"
+      <section className="relative w-full h-[50vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+        {/* Background text */}
+         <h1
+          className="absolute top-5 text-[4rem] md:text-[10rem] font-extrabold text-transparent 
+          [text-stroke:2px_rgb(34,211,238)] [-webkit-text-stroke:2px_rgb(34,211,238)]
+          tracking-widest opacity-10 select-none pointer-events-none"
         >
-          Evolve...
+          EVOLVE
         </h1>
+
+        {/* Main heading */}
         <h2
-          className="relative text-[2.3rem] md:text-[3.5rem] font-extrabold text-gray-400 tracking-wide 
-          text-center z-20"
+          className="relative text-[2rem] md:text-[3.5rem] font-extrabold text-cyan-400 tracking-wide z-10"
           data-aos="zoom-in"
         >
-          WE <span className="text-red-500">Got</span>, Your Back Buddy
+          Meet Our <span className="text-cyan-500">Expert Trainers</span>
         </h2>
-      </div>
 
-      {/* Cards Section */}
-      <div className="flex flex-wrap gap-2 justify-center px-5 pb-10 -mt-8">
-        {trainersData.map((trainer, index) => (
-          <Card
-            key={index}
-            image={trainer.image}
-            name={trainer.name}
-            degree={trainer.degree}
-            description={trainer.description}
-            aos={trainer.aos}
-          />
-        ))}
-      </div>
-    </>
+        {/* Subtitle */}
+        <p className="mt-4 text-gray-400 max-w-xl text-center text-lg z-10">
+          A team of professionals dedicated to guiding you towards your ultimate
+          fitness journey.
+        </p>
+      </section>
+
+      {/* Trainers Grid */}
+      <section className="max-w-7xl mx-auto px-6 pb-20 -mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {trainersData.map((trainer, index) => (
+            <Card
+              key={index}
+              image={trainer.image}
+              name={trainer.name}
+              degree={trainer.degree}
+              description={trainer.description}
+              aos={trainer.aos}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
   );
 };
 

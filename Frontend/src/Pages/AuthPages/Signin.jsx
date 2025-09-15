@@ -66,7 +66,7 @@ const handleSubmit = (e) => {
           <div className="flex justify-between w-full">
             <Button
               type="submit"
-              className="border-2 border-red-600 rounded-lg px-3 py-1"
+              className="border-2 border-cyan-600 rounded-lg px-3 py-1"
             >
               Login
             </Button>

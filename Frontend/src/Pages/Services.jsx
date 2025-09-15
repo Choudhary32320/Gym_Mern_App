@@ -31,20 +31,20 @@ const Services = () => {
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center justify-center px-6 py-20 overflow-hidden">
       {/* Watermark Heading */}
-      <h1
-        className="absolute top-10 text-[5rem] md:text-[10rem] font-extrabold whitespace-nowrap text-transparent 
-        [text-stroke:3px_rgba(255,0,0,0.3)] [-webkit-text-stroke:3px_rgba(255,0,0,0.3)]
-        select-none pointer-events-none tracking-wider z-0"
-      >
-        OUR SERVICE'S
-      </h1>
+       <h1
+          className="absolute top-5 text-[4rem] md:text-[10rem] font-extrabold text-transparent 
+          [text-stroke:2px_rgb(34,211,238)] [-webkit-text-stroke:2px_rgb(34,211,238)]
+          tracking-widest opacity-10 select-none pointer-events-none"
+        >
+          EVOLVE
+        </h1>
 
       {/* Section Title */}
       <h2
-        className="relative z-10 text-3xl md:text-5xl font-extrabold text-gray-400 text-center mb-16"
+        className="relative z-10 text-3xl md:text-5xl font-extrabold text-cyan-400 text-center mb-16"
         data-aos="zoom-in"
       >
-        What We <span className="text-red-500">Offer</span>
+        What We <span className="text-cyan-500">Offer</span>
       </h2>
 
       {/* Services Cards */}
@@ -57,27 +57,28 @@ const Services = () => {
             }`}
           >
             {/* Image Card */}
-            <div
-              data-aos="fade-up"
-              className="group w-full lg:w-[400px] rounded-2xl overflow-hidden shadow-xl shadow-black/40 
-              transform hover:scale-105 hover:shadow-red-900/50 transition-all duration-700"
-            >
-              <img
-                src={service.img}
-                alt={service.title}
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
-              />
+            <div className="w-[430px] h-[300px] border-r-8 border-b-8 border-cyan-400 rounded-4xl">
+              <div
+                data-aos="fade-up"
+                className="group w-full lg:w-[400px] rounded-2xl overflow-hidden shadow-xl shadow-black/40 
+              transform hover:scale-105 hover:shadow-cyan-900/50 transition-all duration-700"
+              >
+                <img
+                  src={service.img}
+                  alt={service.title}
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
             </div>
-
             {/* Text Content */}
             <div
               data-aos="fade-up"
               className="max-w-lg text-center lg:text-left"
             >
-              <h3 className="text-2xl font-bold text-red-500 mb-3">
+              <h3 className="text-2xl font-bold text-cyan-500 mb-3">
                 {service.title}
               </h3>
-              <p className="text-gray-300 text-lg leading-relaxed">
+              <p className="text-cyan-300 text-lg leading-relaxed">
                 {service.desc}
               </p>
             </div>

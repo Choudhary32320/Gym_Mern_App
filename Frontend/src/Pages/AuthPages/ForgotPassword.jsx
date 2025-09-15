@@ -46,19 +46,19 @@ const ForgotPassword = () => {
         <AuthCard title="Forgot Password">
           <InputField
             type="email"
-            placeholder="Enter your registered e-mail"
+            placeholder="Enter your registecyan e-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <Button
             type="submit"
-            className="border-2 border-red-600 rounded-lg px-3 py-1"
+            className="border-2 border-cyan-600 rounded-lg px-3 py-1"
           >
             Send Reset Link
           </Button>
 
           <p className="text-sm text-center">
-            Remembered your password?{" "}
+            Remembecyan your password?{" "}
             <Button
               className="text-yellow-300"
               type="button"

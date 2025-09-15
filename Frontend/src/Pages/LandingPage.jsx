@@ -27,7 +27,7 @@ const LandingPage = () => {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative h-screen z-10 flex items-center justify-center bg-gray-200 overflow-hidden"
+        className="relative h-screen z-10 flex items-center justify-center bg-cyan-200 overflow-hidden"
       >
         <img
           src={background}
@@ -37,21 +37,21 @@ const LandingPage = () => {
         <div className="absolute flex flex-col items-center justify-center inset-0 bg-black/60">
           <h1
             data-aos="fade-up"
-            className="relative z-10 text-5xl font-bold text-gray-300"
+            className="relative z-10 text-5xl font-bold text-cyan-300"
           >
             Don't Just Workout{" "}
             <span
               className="text-[6rem] font-extrabold text-transparent 
-  [text-stroke:2px_#dc2626] [-webkit-text-stroke:2px_#dc2626]"
+  [text-stroke:2px_cyan] [-webkit-text-stroke:2px_cyan]"
             >
               Evolve...
             </span>
           </h1>
-          <h2 data-aos="fade-left" className="text-gray-300 z-10 text-5xl">
+          <h2 data-aos="fade-left" className="text-cyan-300 z-10 text-5xl">
             Forge strength,
             <span
               className="text-[3rem] font-extrabold text-transparent 
-  [text-stroke:2px_#dc2626] [-webkit-text-stroke:2px_#dc2626]"
+  [text-stroke:2px_cyan] [-webkit-text-stroke:2px_cyan]"
             >
               {" "}
               Break limits,
@@ -69,14 +69,14 @@ const LandingPage = () => {
                   block: "start",
                 })
               }
-              className="border-1 border-none px-4 py-3 rounded-full bg-red-600 hover:bg-red-500"
+              className="border-1 border-none px-4 py-3 rounded-full bg-cyan-600 hover:bg-cyan-500"
             >
               Contact Us
             </Button>
 
             <Button
               onClick={() => navigate("/shop")}
-              className="text-neutral-700 border-1 border-none px-4 py-3 rounded-full bg-gray-400 hover:bg-gray-200"
+              className="text-neutral-700 border-1 border-none px-4 py-3 rounded-full bg-cyan-400 hover:bg-cyan-200"
             >
               Shop @ Evolve...
             </Button>

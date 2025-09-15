@@ -8,40 +8,36 @@ const Contact = () => {
     firstName: Yup.string()
       .min(2, "Too Short!")
       .max(50, "Too Long!")
-      .required("Required"),
+      .required("required"),
     lastName: Yup.string()
       .min(2, "Too Short!")
       .max(50, "Too Long!")
-      .required("Required"),
-    email: Yup.string().email("Invalid email").required("Required"),
+      .required("required"),
+    email: Yup.string().email("Invalid email").required("required"),
   });
 
   return (
     <div className="relative w-full min-h-screen flex flex-col justify-center items-center px-6 md:px-20 py-20 overflow-hidden bg-neutral-950">
-      {/* Decorative Watermark */}
       <h1
-        className="absolute top-20 text-[5rem] md:text-[11rem] font-extrabold text-transparent 
-        [text-stroke:3px_rgba(255,0,0,0.25)] [-webkit-text-stroke:3px_rgba(255,0,0,0.25)] 
-        select-none pointer-events-none tracking-widest z-0"
-      >
-        EVOLVE...
-      </h1>
+          className="absolute top-5 text-[4rem] md:text-[10rem] font-extrabold text-transparent 
+          [text-stroke:2px_rgb(34,211,238)] [-webkit-text-stroke:2px_rgb(34,211,238)]
+          tracking-widest opacity-10 select-none pointer-events-none"
+        >
+          EVOLVE
+        </h1>
 
-      {/* Heading */}
       <h2
-        className="relative text-[2.3rem] md:text-[4rem] font-extrabold text-gray-400 tracking-wide 
+        className="relative text-[2.3rem] md:text-[4rem] font-extrabold text-cyan-400 tracking-wide 
         text-center mb-14 z-20"
         data-aos="zoom-in"
       >
-        Join <span className="text-red-500">Evolve</span>, and Elevate Your
+        Join <span className="text-cyan-500">Evolve</span>, and Elevate Your
         Fitness Journey
       </h2>
 
-      {/* Form Wrapper with blur background */}
       <div className="relative w-full max-w-md z-20">
-        <div className="absolute inset-0 bg-red-500/30 rounded-2xl blur-3xl animate-pulse"></div>
+        <div className="absolute inset-0 bg-cyan-500/30 rounded-2xl blur-3xl animate-pulse"></div>
 
-        {/* Form Card */}
         <div className="relative">
           <Formik
             initialValues={{
@@ -55,18 +51,18 @@ const Contact = () => {
             }}
           >
             {({ errors, touched }) => (
-              <Form className="space-y-6 border-4 border-red-600 p-5 rounded-lg">
+              <Form className="space-y-6 border-4 border-cyan-600 p-5 rounded-lg">
                 {/* First Name */}
                 <div>
                   <Field
                     name="firstName"
                     placeholder="First Name"
-                    className="w-full px-4 py-3 rounded-lg bg-neutral-800 text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-4 py-3 rounded-lg bg-neutral-800 text-cyan-400 placeholder-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   />
                   <ErrorMessage
                     name="firstName"
                     component="div"
-                    className="text-red-400 text-sm mt-1"
+                    className="text-cyan-400 text-sm mt-1"
                   />
                 </div>
 
@@ -75,12 +71,12 @@ const Contact = () => {
                   <Field
                     name="lastName"
                     placeholder="Last Name"
-                    className="w-full px-4 py-3 rounded-lg bg-neutral-800 text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-4 py-3 rounded-lg bg-neutral-800 text-cyan-400 placeholder-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   />
                   <ErrorMessage
                     name="lastName"
                     component="div"
-                    className="text-red-400 text-sm mt-1"
+                    className="text-cyan-400 text-sm mt-1"
                   />
                 </div>
 
@@ -90,19 +86,19 @@ const Contact = () => {
                     name="email"
                     type="email"
                     placeholder="Email Address"
-                    className="w-full px-4 py-3 rounded-lg bg-neutral-800 text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-4 py-3 rounded-lg bg-neutral-800 text-cyan-400 placeholder-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   />
                   <ErrorMessage
                     name="email"
                     component="div"
-                    className="text-red-400 text-sm mt-1"
+                    className="text-cyan-400 text-sm mt-1"
                   />
                 </div>
 
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="w-full py-3 bg-red-600 hover:bg-red-700 transition-colors duration-300 text-gray-400 font-bold rounded-lg"
+                  className="w-full py-3 bg-cyan-600 hover:bg-cyan-700 transition-colors duration-300 text-cyan-400 font-bold rounded-lg"
                 >
                   Submit
                 </button>
