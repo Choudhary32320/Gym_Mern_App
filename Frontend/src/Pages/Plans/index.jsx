@@ -66,7 +66,7 @@ const Monthly = () => {
             </p>
 
             {/* Description as bullet points */}
-            <ul className="text-cyan-400 list-disc list-inside space-y-2 text-left">
+            <ul className="text-green-400 list-disc list-inside space-y-2 text-left">
               {plan.Description.map((point, i) => (
                 <li key={i}>{point}</li>
               ))}
@@ -75,7 +75,7 @@ const Monthly = () => {
               <Button className="border-none rounded-lg px-3 py-1 bg-yellow-500 hover:bg-green-600">
                 Join Now
               </Button>
-              <Button className="border-none rounded-lg px-3 py-1 bg-cyan-500 hover:bg-cyan-600">
+              <Button className="border-none rounded-lg px-3 py-1 bg-green-500 hover:bg-green-600">
                 Learn More
               </Button>
             </div>

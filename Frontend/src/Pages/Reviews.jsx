@@ -48,7 +48,7 @@ const Reviews = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     speed: 800,
-    slidesToShow: 2,
+    slidesToShow: 1,
     slidesToScroll: 1,
     responsive: [
       {
@@ -61,7 +61,7 @@ const Reviews = () => {
   };
 
   return (
-    <div className="w-full bg-neutral-900 text-gray-100 py-16">
+    <div className="w-full text-gray-100 py-16">
       {/* Hero Section */}
       <section className="relative w-full h-[40vh] flex flex-col items-center justify-center text-center px-6">
         {/* Background text */}
@@ -75,10 +75,10 @@ const Reviews = () => {
 
         {/* Main heading */}
         <h2
-          className="relative text-[2rem] md:text-[3.5rem] font-extrabold text-cyan-400 tracking-wide z-10"
+          className="relative text-[2rem] md:text-[3.5rem] font-extrabold text-green-400 tracking-wide z-10"
           data-aos="zoom-in"
         >
-          Your <span className="text-cyan-500">Feedback</span> Matters
+          Your <span className="text-green-500">Feedback</span> Matters
         </h2>
         <p className="mt-4 text-gray-400 max-w-lg text-center text-lg z-10">
           Hear from our members who’ve transformed their fitness journey with
@@ -91,12 +91,12 @@ const Reviews = () => {
         <Slider {...settings}>
           {reviewData.map((review, index) => (
             <div key={index} className="px-3">
-              <div className="bg-neutral-800 rounded-2xl p-6 shadow-lg border border-neutral-700 hover:border-cyan-600 transition-all duration-300">
+              <div className="bg-neutral-800 rounded-2xl p-6 shadow-lg border border-neutral-700 hover:border-green-600 transition-all duration-300">
                 <div className="flex flex-col items-center text-center">
                   <img
                     src={review.image}
                     alt={review.name}
-                    className="w-30 h-30 drop-shadow-lg drop-shadow-cyan-300  mb-4"
+                    className="w-30 h-30 drop-shadow-lg drop-shadow-green-300  mb-4"
                   />
                   <h3 className="text-xl font-semibold text-white">
                     {review.name}

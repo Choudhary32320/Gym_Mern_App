@@ -62,24 +62,29 @@ const Navbar = () => {
 
   return (
     <nav className="fixed bg-neutral-900 top-0 left-0 w-full flex items-center justify-between px-5 py-3 z-50">
-      <div className="flex items-center space-x-1 text-cyan-600">
+      <div className="flex items-center space-x-1 text-green-600">
         <img
           src={logo}
           alt="gym-logo"
-          className="w-14 h-20 object-contain drop-shadow-2xl  drop-shadow-amber-200"
+          className="w-10 h-14 md:w-14 md:h-20 object-contain drop-shadow-xl drop-shadow-sky-600"
         />
-        <h1 className="text-2xl font-bold">Evolve...</h1>
+        <h1
+          className="text-[1.5rem] md:text-[2rem] font-extrabold text-transparent 
+   [-webkit-text-stroke:1px_green] md:[-webkit-text-stroke:2px_green]"
+        >
+          Evolve...
+        </h1>
       </div>
 
-      <ul className="hidden md:flex space-x-6 text-cyan-600">
+      <ul className="hidden md:flex space-x-6 text-green-600">
         {links.map((link) => (
           <li key={link.id}>
             <button
               onClick={() => handleScroll(link.id)}
               className={`px-2 pb-1 transition duration-200 ${
                 active === link.id
-                  ? "border-b-2 border-cyan-600"
-                  : "hover:border-b-2 hover:border-cyan-400"
+                  ? "border-b-2 border-green-600"
+                  : "hover:border-b-2 hover:border-green-400"
               }`}
             >
               {link.name}
@@ -92,7 +97,7 @@ const Navbar = () => {
         {isLoggedIn ? (
           <Button
             onClick={handleLogout}
-            className="text-cyan-600 border rounded-full p-2 border-cyan-600"
+            className="text-green-600 border rounded-full p-2 border-green-600"
           >
             Log Out
           </Button>
@@ -106,23 +111,23 @@ const Navbar = () => {
         )}
       </div>
 
-      <div className="md:hidden">
+      <div className="block md:hidden">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-cyan-600 focus:outline-none"
+          className="text-green-600 focus:outline-none"
         >
-          {isMenuOpen ? <RxCross2 size={28} /> : <GiHamburgerMenu size={28} />}
+          {isMenuOpen ? <RxCross2 size={24} /> : <GiHamburgerMenu size={24} />}
         </button>
       </div>
 
       {isMenuOpen && (
-        <div className="absolute top-20 left-0 w-full bg-neutral-900 text-cyan-600 flex flex-col items-center space-y-4 py-6 md:hidden shadow-lg">
+        <div className="absolute top-20 left-0 w-full bg-neutral-900 text-green-600 flex flex-col items-center space-y-2 py-6 md:hidden shadow-lg">
           {links.map((link) => (
             <button
               key={link.id}
               onClick={() => handleScroll(link.id)}
               className={`text-lg ${
-                active === link.id ? "border-b-2 border-cyan-600" : ""
+                active === link.id ? "border-b-2 border-green-600" : ""
               }`}
             >
               {link.name}
@@ -130,10 +135,9 @@ const Navbar = () => {
           ))}
           <div>
             {isLoggedIn ? (
-              
               <Button
                 onClick={handleLogout}
-                className="text-cyan-600 border rounded-full p-2 border-cyan-600"
+                className="text-green-600 border rounded-full p-2 border-green-600"
               >
                 Log Out
               </Button>

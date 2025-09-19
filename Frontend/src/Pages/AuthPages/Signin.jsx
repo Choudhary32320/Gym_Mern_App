@@ -15,28 +15,27 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-const handleSubmit = (e) => {
-  e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  axios
-    .post(
-      VITE_API_BASE_URL + "/auth/login",
-      { email, password },
-      { headers: { "Content-Type": "application/json" } }
-    )
-    .then((result) => {
-      toast.success("Login successful!");
-      localStorage.setItem("token", result.data.token);
-      localStorage.setItem("keepLoggedIn", JSON.stringify(true)); // ✅ fixed
-      navigate("/");
-    })
-    .catch((err) => {
-      console.error("Full error:", err);
-      console.error("Error response:", err.response?.data);
-      toast.error(err.response?.data?.message || "Login failed!");
-    });
-};
-
+    axios
+      .post(
+        VITE_API_BASE_URL + "/auth/login",
+        { email, password },
+        { headers: { "Content-Type": "application/json" } }
+      )
+      .then((result) => {
+        toast.success("Login successful!");
+        localStorage.setItem("token", result.data.token);
+        localStorage.setItem("keepLoggedIn", JSON.stringify(true)); 
+        navigate("/");
+      })
+      .catch((err) => {
+        console.error("Full error:", err);
+        console.error("Error response:", err.response?.data);
+        toast.error(err.response?.data?.message || "Login failed!");
+      });
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -66,11 +65,13 @@ const handleSubmit = (e) => {
           <div className="flex justify-between w-full">
             <Button
               type="submit"
-              className="border-2 border-cyan-600 rounded-lg px-3 py-1"
+              className="border-2 border-green-600 rounded-lg px-3 py-1"
             >
               Login
             </Button>
-            <Button onClick={() => navigate("/forgot-password")}>Forgot Password</Button>
+            <Button onClick={() => navigate("/forgot-password")}>
+              Forgot Password
+            </Button>
           </div>
 
           <p className="text-sm text-center">

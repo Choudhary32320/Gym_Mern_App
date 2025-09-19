@@ -14,7 +14,7 @@ export default function Plans() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-cyan-900 blue-400 p-6">
+    <div className="min-h-screen flex flex-col items-center bg-green-900 blue-400 p-6">
       <h1 className="text-3xl font-bold mb-6">Choose Your Plan</h1>
 
       <div className="flex flex-wrap gap-3 mb-8">
@@ -25,7 +25,7 @@ export default function Plans() {
             className={`px-4 py-2 rounded-lg font-semibold transition ${
               activePlan === plan
                 ? "bg-blue-500 blue-400"
-                : "bg-cyan-700 hover:bg-cyan-600"
+                : "bg-green-700 hover:bg-green-600"
             }`}
           >
             {plan}
@@ -33,7 +33,7 @@ export default function Plans() {
         ))}
       </div>
 
-      <div className="w-full max-w-3xl bg-cyan-700 p-6 rounded-lg shadow-lg">
+      <div className="w-full max-w-3xl bg-green-700 p-6 rounded-lg shadow-lg">
         {planComponents[activePlan]}
       </div>
     </div>

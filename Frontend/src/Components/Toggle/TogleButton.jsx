@@ -17,12 +17,12 @@ const ToggleButton = ({ isOn: initialIsOn = false, onToggle }) => {
 
   return (
     <div
-      className="relative inline-flex items-center text-black text-lg pl-2 font-semibold text-right bg-cyan-400  p-2 h-10 w-20 border-2 border-cyan-400 rounded-full cursor-pointer transition-colors duration-300"
+      className="relative inline-flex items-center text-black text-lg pl-2 font-semibold text-right bg-green-400  p-2 h-10 w-20 border-2 border-green-400 rounded-full cursor-pointer transition-colors duration-300"
       onClick={toggleSwitch}
     >
       <div
         className={`absolute inset-0 flex items-center justify-between px-2 text-sm font-medium ${
-          isOn ? "text-purple" : "text-cyan-400"
+          isOn ? "text-purple" : "text-green-400"
         }`}
       >
         {isOn && (
@@ -31,7 +31,7 @@ const ToggleButton = ({ isOn: initialIsOn = false, onToggle }) => {
         {!isOn && <span className="mr-2"></span>}
       </div>
       <span
-        className={`inline-block w-8 h-8  border-2 border-cyan-400 rounded-full transform transition-transform duration-300 ${
+        className={`inline-block w-8 h-8  border-2 border-green-400 rounded-full transform transition-transform duration-300 ${
           isOn
             ? "translate-x-8 bg-purpleBackground"
             : "translate-x-0 bg-lightestGrey"

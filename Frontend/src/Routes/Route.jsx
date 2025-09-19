@@ -11,8 +11,8 @@ import ForgotPassword from "../Pages/AuthPages/ForgotPassword";
 import Otp from "../Pages/AuthPages/Otp";
 import Shop from "../Pages/Shop";
 import ItemDetails from "../Pages/ItemDetail/viewItem";
-import { Counter } from "../Pages/counter";
 import CartPage from "../Pages/CartItem";
+import UserDetail from "../Pages/User/UserDetail";
 
 const RouteComponent = () => {
   const isLoggedIn = JSON.parse(localStorage.getItem("keepLoggedIn")) || false;
@@ -46,8 +46,8 @@ const RouteComponent = () => {
         <Route path="/forgot-Password" element={<ForgotPassword />} />
         <Route path="/otp" element={<Otp />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/counter" element={<Counter />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/userdetail" element={<UserDetail />} />
       </Routes>
     </BrowserRouter>
   );

@@ -15,7 +15,7 @@ const Trainers = () => {
       degree: "Expert Dietitian",
       description:
         "Helping you achieve health goals with tailored nutrition plans backed by science and experience.",
-      aos: "zoom-out",
+      aos: "zoom-in",
     },
     {
       image: img2,
@@ -23,7 +23,7 @@ const Trainers = () => {
       degree: "Mental Health Specialist",
       description:
         "Guiding your fitness journey with a focus on both mental and physical well-being.",
-      aos: "zoom-out",
+      aos: "zoom-in",
     },
     {
       image: img3,
@@ -31,7 +31,7 @@ const Trainers = () => {
       degree: "Targeted Training Expert",
       description:
         "Designing custom strength and conditioning programs to push your limits safely.",
-      aos: "zoom-out",
+      aos: "zoom-in",
     },
     {
       image: img4,
@@ -39,7 +39,7 @@ const Trainers = () => {
       degree: "Physical Health Coach",
       description:
         "Building endurance, flexibility, and balance through innovative, sustainable methods.",
-      aos: "zoom-out",
+      aos: "zoom-in",
     },
     {
       image: img5,
@@ -47,7 +47,7 @@ const Trainers = () => {
       degree: "Yoga Instructor",
       description:
         "Empowering you through mindfulness, balance, and advanced yoga practices.",
-      aos: "zoom-out",
+      aos: "zoom-in",
     },
     {
       image: img6,
@@ -55,16 +55,16 @@ const Trainers = () => {
       degree: "Zumba Instructor",
       description:
         "Bringing energy and fun to every session with calorie-burning dance workouts.",
-      aos: "zoom-out",
+      aos: "zoom-in",
     },
   ];
 
   return (
-    <div className="w-full bg-neutral-900 text-gray-100">
+    <div className="w-full text-gray-100">
       {/* Hero Section */}
       <section className="relative w-full h-[50vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
         {/* Background text */}
-         <h1
+        <h1
           className="absolute top-5 text-[4rem] md:text-[10rem] font-extrabold text-transparent 
           [text-stroke:2px_rgb(34,211,238)] [-webkit-text-stroke:2px_rgb(34,211,238)]
           tracking-widest opacity-10 select-none pointer-events-none"
@@ -74,10 +74,10 @@ const Trainers = () => {
 
         {/* Main heading */}
         <h2
-          className="relative text-[2rem] md:text-[3.5rem] font-extrabold text-cyan-400 tracking-wide z-10"
+          className="relative text-[2rem] md:text-[3.5rem] font-extrabold text-green-400 tracking-wide z-10"
           data-aos="zoom-in"
         >
-          Meet Our <span className="text-cyan-500">Expert Trainers</span>
+          Meet Our <span className="text-green-500">Expert Trainers</span>
         </h2>
 
         {/* Subtitle */}
