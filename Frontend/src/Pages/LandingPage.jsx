@@ -82,7 +82,15 @@ const LandingPage = () => {
             </Button>
 
             <Button
-              onClick={() => navigate("/shop")}
+              onClick={() => {
+                const isLoggedIn =
+                  JSON.parse(localStorage.getItem("keepLoggedIn")) || false;
+                if (isLoggedIn) {
+                  navigate("/shop");
+                } else {
+                  navigate("/login", { state: { from: "/shop" } }); // <-- Pass redirect path
+                }
+              }}
               className="text-neutral-700 border-1 border-none px-3 py-1 md:px-4 md:py-3 text-sm md:text-xl rounded-full bg-green-400 hover:bg-green-200"
             >
               Shop{" "}

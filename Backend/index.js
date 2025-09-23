@@ -1,7 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const userRoutes = require("../Backend/Routes/userRoutes");
-
 const cors = require("cors");
 const path = require("path");
 
@@ -34,7 +32,6 @@ mongoose
 //item api
 app.use("/api/item", require("./Routes/shopRoutes"));
 app.use("/api/auth", require("./Routes/authRoutes"));
-
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

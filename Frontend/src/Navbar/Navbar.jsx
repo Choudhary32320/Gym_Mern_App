@@ -1,15 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Button from "../Components/Button/Button";
 import logo from "/Gym Image/logo-1.png";
-import { useNavigate } from "react-router-dom";
+import { FaRegCircleUser } from "react-icons/fa6";
+import { FiMenu } from "react-icons/fi";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { AiOutlineClose } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { RxCross2 } from "react-icons/rx";
+import { logout } from "../Redux/Slice/authSlice";
 
 const Navbar = () => {
-  const [active, setActive] = useState("home");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // Get authentication data from Redux
+  const { name, isAuthenticated } = useSelector((state) => state.auth);
+
+  // UI states
+  const [active, setActive] = useState("home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const dropdownRef = useRef();
+
+  // Close dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
 
   const links = [
     { name: "Home", id: "home" },
@@ -20,135 +44,158 @@ const Navbar = () => {
     { name: "Contact", id: "contact" },
   ];
 
+  // Smooth scroll to section
   const handleScroll = (id) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
       setActive(id);
-      setIsMenuOpen(false);
+      setIsMenuOpen(false); // close mobile menu
     }
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    links.forEach((link) => {
-      const section = document.getElementById(link.id);
-      if (section) observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const loggedIn = JSON.parse(localStorage.getItem("keepLoggedIn"));
-    setIsLoggedIn(loggedIn || false);
-  }, []);
-
+  // Logout handler
   const handleLogout = () => {
-    localStorage.clear();
-    setIsLoggedIn(false);
+    dispatch(logout()); // ✅ Clear Redux and localStorage
+    setIsDropdownOpen(false);
+    setIsMenuOpen(false);
     navigate("/login");
   };
 
   return (
-    <nav className="fixed bg-neutral-900 top-0 left-0 w-full flex items-center justify-between px-5 py-3 z-50">
-      <div className="flex items-center space-x-1 text-green-600">
-        <img
-          src={logo}
-          alt="gym-logo"
-          className="w-10 h-14 md:w-14 md:h-20 object-contain drop-shadow-xl drop-shadow-sky-600"
-        />
-        <h1
-          className="text-[1.5rem] md:text-[2rem] font-extrabold text-transparent 
-   [-webkit-text-stroke:1px_green] md:[-webkit-text-stroke:2px_green]"
-        >
-          Evolve...
-        </h1>
-      </div>
+    <nav className="fixed top-0 left-0 w-full z-50 bg-neutral-900 px-5 py-3">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex items-center space-x-2">
+          <img src={logo} alt="logo" className="w-10 h-10 object-contain" />
+          <span className="text-green-600 font-extrabold text-xl md:text-2xl">
+            Evolve...
+          </span>
+        </div>
 
-      <ul className="hidden md:flex space-x-6 text-green-600">
-        {links.map((link) => (
-          <li key={link.id}>
-            <button
-              onClick={() => handleScroll(link.id)}
-              className={`px-2 pb-1 transition duration-200 ${
-                active === link.id
-                  ? "border-b-2 border-green-600"
-                  : "hover:border-b-2 hover:border-green-400"
-              }`}
-            >
-              {link.name}
-            </button>
-          </li>
-        ))}
-      </ul>
-
-      <div className="hidden md:block">
-        {isLoggedIn ? (
-          <Button
-            onClick={handleLogout}
-            className="text-green-600 border rounded-full p-2 border-green-600"
-          >
-            Log Out
-          </Button>
-        ) : (
-          <Button
-            className="text-yellow-300 border rounded-full p-2 border-yellow-300"
-            onClick={() => navigate("/login")}
-          >
-            Log In
-          </Button>
-        )}
-      </div>
-
-      <div className="block md:hidden">
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-green-600 focus:outline-none"
-        >
-          {isMenuOpen ? <RxCross2 size={24} /> : <GiHamburgerMenu size={24} />}
-        </button>
-      </div>
-
-      {isMenuOpen && (
-        <div className="absolute top-20 left-0 w-full bg-neutral-900 text-green-600 flex flex-col items-center space-y-2 py-6 md:hidden shadow-lg">
+        {/* Desktop nav links */}
+        <ul className="hidden md:flex space-x-6 text-green-600">
           {links.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => handleScroll(link.id)}
-              className={`text-lg ${
-                active === link.id ? "border-b-2 border-green-600" : ""
-              }`}
-            >
-              {link.name}
-            </button>
+            <li key={link.id}>
+              <button
+                onClick={() => handleScroll(link.id)}
+                className={`px-2 pb-1 transition ${
+                  active === link.id
+                    ? "border-b-2 border-green-600"
+                    : "hover:border-b-2 hover:border-green-400"
+                }`}
+              >
+                {link.name}
+              </button>
+            </li>
           ))}
-          <div>
-            {isLoggedIn ? (
-              <Button
-                onClick={handleLogout}
-                className="text-green-600 border rounded-full p-2 border-green-600"
+        </ul>
+
+        {/* Desktop Right Side */}
+        <div className="hidden md:flex items-center space-x-4" ref={dropdownRef}>
+          {isAuthenticated ? (
+            <div className="relative">
+              <button
+                onClick={() => setIsDropdownOpen((prev) => !prev)}
+                className="flex items-center gap-2 px-3 py-1 rounded cursor-pointer text-green-600 bg-transparent"
               >
-                Log Out
-              </Button>
+                <FaRegCircleUser className="w-6 h-6" />
+                <span className="text-yellow-400 font-semibold">{name}</span>
+                <BsThreeDotsVertical className="w-4 h-4" />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-neutral-800 border border-green-600 rounded shadow overflow-hidden">
+                  <button
+                    onClick={() => {
+                      navigate("/profile");
+                      setIsDropdownOpen(false);
+                    }}
+                    className="w-full text-left px-4 py-2 hover:bg-green-700 hover:text-white text-green-600"
+                  >
+                    Profile
+                  </button>
+                  <button
+                    onClick={handleLogout}
+                    className="w-full text-left px-4 py-2 hover:bg-green-700 hover:text-white text-green-600"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Button
+              className="text-yellow-300 border rounded-full px-4 py-2 border-yellow-300"
+              onClick={() => navigate("/login")}
+            >
+              Log In
+            </Button>
+          )}
+        </div>
+
+        {/* Mobile Hamburger */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            className="text-green-600 p-1"
+          >
+            {isMenuOpen ? (
+              <AiOutlineClose className="w-6 h-6" />
             ) : (
-              <Button
-                className="text-yellow-300 border rounded-full p-2 border-yellow-300"
-                onClick={() => navigate("/login")}
-              >
-                Log In
-              </Button>
+              <FiMenu className="w-6 h-6" />
             )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden mt-2 bg-neutral-900 text-green-600 py-4 px-6">
+          <div className="flex flex-col space-y-3">
+            {links.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => handleScroll(link.id)}
+                className="text-lg text-left"
+              >
+                {link.name}
+              </button>
+            ))}
+
+            <div className="mt-3">
+              {isAuthenticated ? (
+                <>
+                <div className="flex items-center gap-2">
+                <FaRegCircleUser className="w-6 h-6" />
+                  <p className="text-yellow-400 mb-2">{name}</p>
+                  </div>
+                  <Button
+                    onClick={() => {
+                      navigate("/profile");
+                      setIsMenuOpen(false);
+                    }}
+                    className="mb-2 text-green-600 border rounded-full px-4 py-2 border-green-600"
+                  >
+                    Profile
+                  </Button>
+                  <Button
+                    onClick={handleLogout}
+                    className="text-red-500 border rounded-full px-4 py-2 border-red-500"
+                  >
+                    Logout
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  onClick={() => navigate("/login")}
+                  className="text-yellow-300 border rounded-full px-4 py-2 border-yellow-300"
+                >
+                  Log In
+                </Button>
+              )}
+            </div>
           </div>
         </div>
       )}

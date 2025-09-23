@@ -3,7 +3,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const Contact = () => {
-  // ✅ Validation Schema
   const SignupSchema = Yup.object().shape({
     firstName: Yup.string()
       .min(2, "Too Short!")
@@ -106,6 +105,7 @@ const Contact = () => {
             )}
           </Formik>
         </div>
+        
       </div>
     </div>
   );

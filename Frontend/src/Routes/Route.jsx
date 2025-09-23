@@ -39,6 +39,7 @@ const RouteComponent = () => {
           path="/shop"
           element={isLoggedIn ? <Shop /> : <Navigate to="/login" />}
         />
+
         <Route path="/item/:id" element={<ItemDetails />} />
 
         <Route path="/login" element={<Signin />} />
