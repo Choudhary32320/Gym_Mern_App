@@ -38,7 +38,7 @@ const LandingPage = () => {
         <div className="absolute flex flex-col items-center justify-center inset-0 bg-black/60">
           <h1
             data-aos="fade-up"
-            className="relative z-10 text-xl md:text-5xl font-bold text-green-300"
+            className="relative z-10 text-xl md:text-3xl lg:text-5xl font-bold text-green-300"
           >
             Don't Just Workout{" "}
             <span
@@ -50,7 +50,7 @@ const LandingPage = () => {
           </h1>
           <h2
             data-aos="fade-left"
-            className="text-green-300 z-10 p-2 text-base md:text-5xl whitespace-nowrap"
+            className="text-green-300 z-10 p-2 text-base text-center md:text-2xl lg:text-5xl md:whitespace-nowrap"
           >
             Forge strength,
             <span
@@ -73,9 +73,9 @@ const LandingPage = () => {
                   block: "start",
                 })
               }
-              className="flex justify-center items-center gap-1 text-sm md:text-xl border-1 border-none px-3 py-1  md:px-4 md:py-3 rounded-full bg-green-600 hover:bg-green-500"
+              className="flex justify-center items-center gap-1 text-sm md:text-base lg:text-xl border-1 border-none px-3 py-1  lg:px-4 lg:py-3 rounded-full bg-green-600 hover:bg-green-500"
             >
-              <span className="text-red-600 text-lg md:text-3xl">
+              <span className="text-red-600 text-lg md:text-xl lg:text-3xl">
                 <CgPhone />
               </span>
               Contact Us
@@ -91,10 +91,10 @@ const LandingPage = () => {
                   navigate("/login", { state: { from: "/shop" } }); // <-- Pass redirect path
                 }
               }}
-              className="text-neutral-700 border-1 border-none px-3 py-1 md:px-4 md:py-3 text-sm md:text-xl rounded-full bg-green-400 hover:bg-green-200"
+              className="text-neutral-700 border-1 border-none px-3 py-1 md:px-3 md:py-1 lg:px-4 lg:py-3 text-sm md:text-base lg:text-xl rounded-full bg-green-400 hover:bg-green-200"
             >
               Shop{" "}
-              <span className="text-red-600 text-lg md:text-2xl font-bold">
+              <span className="text-red-600 text-lg md:text-xl lg:text-2xl font-bold">
                 @
               </span>{" "}
               Evolve...

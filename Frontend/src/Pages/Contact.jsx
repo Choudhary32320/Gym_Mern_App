@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import contactImg from "/Gym Image/contactus.png";
 
 const Contact = () => {
   const SignupSchema = Yup.object().shape({
@@ -18,15 +19,15 @@ const Contact = () => {
   return (
     <div className="relative w-full min-h-screen flex flex-col justify-center items-center px-6 md:px-20 py-20 overflow-hidden bg-neutral-950">
       <h1
-        className="absolute top-5 text-[4rem] md:text-[10rem] font-extrabold text-transparent 
+        className="absolute top-5 text-[3.5rem] md:text-[7rem] lg:text-[10rem] font-extrabold text-transparent 
           [text-stroke:2px_rgb(34,211,238)] [-webkit-text-stroke:2px_rgb(34,211,238)]
           tracking-widest opacity-10 select-none pointer-events-none"
       >
-        EVOLVE
+        EVOLVE...
       </h1>
 
       <h2
-        className="relative text-[2.3rem] md:text-[4rem] font-extrabold text-green-400 tracking-wide 
+        className="relative text-xl md:text-2xl lg:text-5xl md:whitespace-nowrap font-extrabold text-green-400 tracking-wide 
         text-center mb-14 z-20"
         data-aos="zoom-in"
       >
@@ -105,7 +106,6 @@ const Contact = () => {
             )}
           </Formik>
         </div>
-        
       </div>
     </div>
   );

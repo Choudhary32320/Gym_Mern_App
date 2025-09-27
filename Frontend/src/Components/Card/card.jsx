@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ name, description, degree, image, aos = "zoom in" }) => {
+const Card = ({ name, description, degree, image, aos = "fade-left" }) => {
   return (
     <>
       <div

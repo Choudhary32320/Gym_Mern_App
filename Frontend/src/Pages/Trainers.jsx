@@ -65,23 +65,23 @@ const Trainers = () => {
       <section className="relative w-full h-[50vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
         {/* Background text */}
         <h1
-          className="absolute top-5 text-[4rem] md:text-[10rem] font-extrabold text-transparent 
+          className="absolute top-5 text-[3.5rem] md:text-[7rem] lg:text-[10rem] font-extrabold text-transparent 
           [text-stroke:2px_rgb(34,211,238)] [-webkit-text-stroke:2px_rgb(34,211,238)]
           tracking-widest opacity-10 select-none pointer-events-none"
         >
-          EVOLVE
+          EVOLVE...
         </h1>
 
         {/* Main heading */}
         <h2
-          className="relative text-[2rem] md:text-[3.5rem] font-extrabold text-green-400 tracking-wide z-10"
+          className="relative text-xl md:text-3xl lg:text-5xl font-extrabold text-green-400 tracking-wide z-10"
           data-aos="zoom-in"
         >
           Meet Our <span className="text-green-500">Expert Trainers</span>
         </h2>
 
         {/* Subtitle */}
-        <p className="mt-4 text-gray-400 max-w-xl text-center text-lg z-10">
+        <p className="mt-4 text-gray-400 max-w-xl text-center text-base md:whitespace-nowrap lg:text-xl lg:whitespace-normal z-10">
           A team of professionals dedicated to guiding you towards your ultimate
           fitness journey.
         </p>

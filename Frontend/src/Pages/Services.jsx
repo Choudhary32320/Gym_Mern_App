@@ -30,24 +30,21 @@ const Services = () => {
 
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center justify-center px-6 py-20 overflow-hidden">
-      {/* Watermark Heading */}
       <h1
-        className="absolute top-5 text-[4rem] md:text-[10rem] font-extrabold text-transparent 
+        className="absolute top-5 text-[3.5rem] md:text-[7rem] lg:text-[10rem] font-extrabold text-transparent 
           [text-stroke:2px_rgb(34,211,238)] [-webkit-text-stroke:2px_rgb(34,211,238)]
           tracking-widest opacity-10 select-none pointer-events-none"
       >
-        EVOLVE
+        EVOLVE...
       </h1>
 
-      {/* Section Title */}
       <h2
-        className="relative z-10 text-3xl md:text-5xl font-extrabold text-green-400 text-center mb-16"
+        className="relative z-10 text-2xl md:text-3xl lg:text-5xl font-extrabold text-green-400 text-center mb-16"
         data-aos="zoom-in"
       >
         What We <span className="text-green-500">Offer</span>
       </h2>
 
-      {/* Services Cards */}
       <div className="relative z-10 flex flex-col gap-20 w-full max-w-6xl">
         {services.map((service, index) => (
           <div
@@ -56,29 +53,27 @@ const Services = () => {
               index % 2 === 0 ? "" : "lg:flex-row-reverse"
             }`}
           >
-            {/* Image Card */}
-            <div className="md:w-[430px] md:h-[300px] border-r-8 border-b-8 border-green-400 rounded-4xl">
+            <div className="md:w-lg lg:w-[420px] lg:h-[250px] md:border-r-8 md:border-b-8 border-green-400 rounded-4xl">
               <div
                 data-aos="fade-up"
-                className="group w-full lg:w-[400px] rounded-2xl overflow-hidden shadow-xl shadow-black/40 
-              transform hover:scale-105 hover:shadow-green-900/50 transition-all duration-700"
+                className="group lg:w-[400px] lg:h-[230px] rounded-2xl overflow-hidden shadow-xl shadow-black/40 
+              transform hover:scale-100 hover:shadow-green-900/50 transition-all duration-700"
               >
                 <img
                   src={service.img}
                   alt={service.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
             </div>
-            {/* Text Content */}
             <div
               data-aos="fade-up"
-              className="max-w-lg text-center lg:text-left"
+              className="max-w-lg md:text-center lg:text-left"
             >
-              <h3 className="text-2xl font-bold text-green-500 mb-3">
+              <h3 className="text-xl md:text-2xl font-bold text-green-500 mb-3">
                 {service.title}
               </h3>
-              <p className="text-green-300 text-lg leading-relaxed">
+              <p className="text-green-300 text-sm md:text-lg text-justify">
                 {service.desc}
               </p>
             </div>

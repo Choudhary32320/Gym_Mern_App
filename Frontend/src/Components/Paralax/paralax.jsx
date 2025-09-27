@@ -10,7 +10,7 @@ const ParallaxSection = ({ image, text, aos = "zoom-in" }) => {
     >
       <div className="absolute inset-0 bg-black/50"></div>
       <div className="relative z-10 text-center px-4" data-aos={aos}>
-        <h2 className="text-4xl md:text-6xl font-bold text-green-400">
+        <h2 className="text-xl md:text-3xl lg:text-6xl font-bold  text-green-400">
           {text}
         </h2>
       </div>

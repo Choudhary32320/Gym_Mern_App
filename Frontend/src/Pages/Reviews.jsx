@@ -50,14 +50,6 @@ const Reviews = () => {
     speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 768, // Mobile
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
   };
 
   return (
@@ -66,24 +58,20 @@ const Reviews = () => {
       <section className="relative w-full h-[40vh] flex flex-col items-center justify-center text-center px-6">
         {/* Background text */}
         <h1
-          className="absolute top-5 text-[3rem] md:text-[8rem] font-extrabold text-transparent 
+          className="absolute top-5 text-[3.5rem] md:text-[7rem] lg:text-[10rem] font-extrabold text-transparent 
           [text-stroke:2px_rgb(34,211,238)] [-webkit-text-stroke:2px_rgb(34,211,238)]
           tracking-widest opacity-10 select-none pointer-events-none"
         >
-          REVIEWS
+          EVOLVE...
         </h1>
 
         {/* Main heading */}
         <h2
-          className="relative text-[2rem] md:text-[3.5rem] font-extrabold text-green-400 tracking-wide z-10"
+          className="relative text-2xl md:text-3xl lg:text-5xl font-extrabold text-green-400 tracking-wide z-10"
           data-aos="zoom-in"
         >
           Your <span className="text-green-500">Feedback</span> Matters
         </h2>
-        <p className="mt-4 text-gray-400 max-w-lg text-center text-lg z-10">
-          Hear from our members who’ve transformed their fitness journey with
-          us.
-        </p>
       </section>
 
       {/* Reviews Slider */}
@@ -98,7 +86,7 @@ const Reviews = () => {
                     alt={review.name}
                     className="w-30 h-30 drop-shadow-lg drop-shadow-green-300  mb-4"
                   />
-                  <h3 className="text-xl font-semibold text-white">
+                  <h3 className="text-xl font-semibold text-green-500">
                     {review.name}
                   </h3>
                   <p className="text-gray-400 text-sm mt-2 leading-relaxed">

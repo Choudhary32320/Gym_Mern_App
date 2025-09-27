@@ -56,7 +56,7 @@ const Navbar = () => {
 
   // Logout handler
   const handleLogout = () => {
-    dispatch(logout()); // ✅ Clear Redux and localStorage
+    dispatch(logout());
     setIsDropdownOpen(false);
     setIsMenuOpen(false);
     navigate("/login");
@@ -66,15 +66,15 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full z-50 bg-neutral-900 px-5 py-3">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center lg:space-x-2">
           <img src={logo} alt="logo" className="w-10 h-10 object-contain" />
-          <span className="text-green-600 font-extrabold text-xl md:text-2xl">
+          <span className="text-green-600 font-extrabold text-xl md:text-lg lg:text-2xl">
             Evolve...
           </span>
         </div>
 
         {/* Desktop nav links */}
-        <ul className="hidden md:flex space-x-6 text-green-600">
+        <ul className="hidden md:flex md:space-x-3 lg:space-x-6 text-green-600 md:text-xs lg:text-lg">
           {links.map((link) => (
             <li key={link.id}>
               <button
@@ -92,21 +92,27 @@ const Navbar = () => {
         </ul>
 
         {/* Desktop Right Side */}
-        <div className="hidden md:flex items-center space-x-4" ref={dropdownRef}>
+        <div
+          className="hidden md:flex items-center space-x-4"
+          ref={dropdownRef}
+        >
           {isAuthenticated ? (
             <div className="relative">
               <button
                 onClick={() => setIsDropdownOpen((prev) => !prev)}
-                className="flex items-center gap-2 px-3 py-1 rounded cursor-pointer text-green-600 bg-transparent"
+                className="flex items-center gap-1 md:px-2 lg:px-3 lg:py-1 cursor-pointer border-2 rounded-full border-green-400 text-green-600 bg-green-500"
               >
-                <FaRegCircleUser className="w-6 h-6" />
-                <span className="text-yellow-400 font-semibold">{name}</span>
-                <BsThreeDotsVertical className="w-4 h-4" />
+                <span className="md:text-xl lg:text-3xl text-neutral-950 font-semibold">
+                  {name[0]}
+                </span>
               </button>
 
               {/* Dropdown Menu */}
               {isDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-40 bg-neutral-800 border border-green-600 rounded shadow overflow-hidden">
+                  <h1 className="text-green-600 text-center font-bold">
+                    Welcome! {name}
+                  </h1>
                   <button
                     onClick={() => {
                       navigate("/profile");
@@ -167,9 +173,9 @@ const Navbar = () => {
             <div className="mt-3">
               {isAuthenticated ? (
                 <>
-                <div className="flex items-center gap-2">
-                <FaRegCircleUser className="w-6 h-6" />
-                  <p className="text-yellow-400 mb-2">{name}</p>
+                  <div className="flex items-center gap-5 ">
+                    <FaRegCircleUser className="w-6 h-6" />
+                    <p className="text-yellow-400 mb-2">{name}</p>
                   </div>
                   <Button
                     onClick={() => {
